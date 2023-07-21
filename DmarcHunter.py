@@ -1,5 +1,6 @@
 import dns.resolver
 import subprocess
+import whois
 
 def check_mx(domain):
     try:
@@ -19,7 +20,18 @@ def check_dmarc(domain):
         return dmarc_record
     except subprocess.CalledProcessError:
         return None
-    
+
+def get_domain_owner(domain):
+    try:
+        domain_info = whois.whois(domain)
+        if isinstance(domain_info.registrant_name, list):
+            owner = domain_info.registrant_name[0]
+        else:
+            owner = domain_info.registrant_name
+        return owner
+    except Exception:
+        return None
+
 def display_banner():
     banner_text = r"""
 ╔╦╗╔╦╗╔═╗╦═╗╔═╗  ╦ ╦╦ ╦╔╗╔╔╦╗╔═╗╦═╗
@@ -31,9 +43,10 @@ def display_banner():
 def main():
     display_banner()
 
-    # Define ANSI escape sequences for red, green, and reset colors
+    # Define ANSI escape sequences for red, green, blue, and reset colors
     red_color = "\033[91m"
     green_color = "\033[92m"
+    blue_color = "\033[94m"
     reset_color = "\033[0m"
 
     file_path = 'domains.txt'  # Path to the file containing the list of domains
@@ -64,6 +77,12 @@ def main():
                 print(f"{red_color}The current DMARC policy for this domain is REJECT{reset_color}")
         else:
             print(f"{red_color}No DMARC record found for this domain{reset_color}")
+
+        domain_owner = get_domain_owner(domain)
+        if domain_owner:
+            print(f"{blue_color}Domain Owner: {domain_owner}{reset_color}")
+        else:
+            print(f"{blue_color}Domain Owner information not available{reset_color}")
 
         print("=" * 50)
 
