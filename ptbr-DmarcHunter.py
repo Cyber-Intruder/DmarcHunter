@@ -43,10 +43,11 @@ def display_banner():
 def main():
     display_banner()
 
-    # Define ANSI escape sequences for red, green, blue, and reset colors
+    # Define ANSI escape sequences for red, green, blue, yellow, and reset colors
     red_color = "\033[91m"
     green_color = "\033[92m"
     blue_color = "\033[94m"
+    yellow_color = "\033[93m"
     reset_color = "\033[0m"
 
     file_path = 'domains.txt'  # Caminho para o arquivo contendo a lista de domínios
@@ -68,7 +69,8 @@ def main():
         dmarc_record = check_dmarc(domain)
         if dmarc_record:
             print("Registro DMARC:")
-            print(f"  {dmarc_record}")
+            filtered_dmarc_record = dmarc_record.replace("v=DMARC1;", "").replace("p=reject;", "").replace("sp=reject;", "").replace("rua=mailto:", "").replace("> /dev/null", "").replace("ruf=mailto:", "")
+            print(f"  {filtered_dmarc_record}")
             if "p=none" in dmarc_record:
                 print(f"{red_color}DMARC existe, mas não há políticas definidas{reset_color}")
             elif "p=quarantine" in dmarc_record:
@@ -84,8 +86,10 @@ def main():
         else:
             print(f"{blue_color}Informações do proprietário do domínio não disponíveis{reset_color}")
 
+        whois_link = f"https://who.is/whois/{domain}"
+        print(f"{yellow_color}Para mais informações sobre este domínio, acesse: {whois_link}{reset_color}")
+
         print("=" * 50)
 
 if __name__ == "__main__":
     main()
-
