@@ -1,5 +1,9 @@
 # DmarcHunter
 
+python-whois installation:
+
+pip install python-whois
+
 Usage:
 
 1 - Add all the domains that you want to check in the included "domains.txt" file(do not leave blank spaces or empty lines) and save the file.
