@@ -72,9 +72,9 @@ def main():
             if "p=none" in dmarc_record:
                 print(f"{red_color}DMARC existe, mas não há políticas definidas{reset_color}")
             elif "p=quarantine" in dmarc_record:
-                print(f"{red_color}A política atual de DMARC para este domínio é QUARENTENA{reset_color}")
+                print(f"{red_color}A política atual de DMARC para este domínio é QUARANTINE{reset_color}")
             elif "p=reject" in dmarc_record:
-                print(f"{red_color}A política atual de DMARC para este domínio é REJEITAR{reset_color}")
+                print(f"{red_color}A política atual de DMARC para este domínio é REJECT{reset_color}")
         else:
             print(f"{red_color}Nenhum registro DMARC encontrado para este domínio{reset_color}")
 
