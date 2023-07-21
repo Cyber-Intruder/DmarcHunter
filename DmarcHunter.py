@@ -19,5 +19,53 @@ def check_dmarc(domain):
         return dmarc_record
     except subprocess.CalledProcessError:
         return None
+    
+def display_banner():
+    banner_text = r"""
+╔╦╗╔╦╗╔═╗╦═╗╔═╗  ╦ ╦╦ ╦╔╗╔╔╦╗╔═╗╦═╗
+ ║║║║║╠═╣╠╦╝║    ╠═╣║ ║║║║ ║ ║╣ ╠╦╝
+═╩╝╩ ╩╩ ╩╩╚═╚═╝  ╩ ╩╚═╝╝╚╝ ╩ ╚═╝╩╚═
+"""
+    print(banner_text)
 
+def main():
+    display_banner()
 
+    # Define ANSI escape sequences for red, green, and reset colors
+    red_color = "\033[91m"
+    green_color = "\033[92m"
+    reset_color = "\033[0m"
+
+    file_path = 'domains.txt'  # Path to the file containing the list of domains
+
+    with open(file_path, 'r') as file:
+        domains = file.read().splitlines()
+
+    for domain in domains:
+        print(f"{green_color}Domain: {domain}{reset_color}")
+
+        mx_records = check_mx(domain)
+        if mx_records:
+            print("MX Records:")
+            for mx in mx_records:
+                print(f"  {mx}")
+        else:
+            print("No MX records found.")
+
+        dmarc_record = check_dmarc(domain)
+        if dmarc_record:
+            print("DMARC Record:")
+            print(f"  {dmarc_record}")
+            if "p=none" in dmarc_record:
+                print(f"{red_color}DMARC exists, but there are no policies set{reset_color}")
+            elif "p=quarantine" in dmarc_record:
+                print(f"{red_color}The current DMARC policy for this domain is QUARANTINE{reset_color}")
+            elif "p=reject" in dmarc_record:
+                print(f"{red_color}The current DMARC policy for this domain is REJECT{reset_color}")
+        else:
+            print(f"{red_color}No DMARC record found for this domain{reset_color}")
+
+        print("=" * 50)
+
+if __name__ == "__main__":
+    main()
