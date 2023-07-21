@@ -10,7 +10,7 @@ def check_mx(domain):
     except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer):
         return None
     except dns.exception.DNSException as e:
-        print(f"Error while resolving MX for {domain}: {e}")
+        print(f"Error resolving MX for {domain}: {e}")
         return None
 
 def check_dmarc(domain):
@@ -43,10 +43,12 @@ def display_banner():
 def main():
     display_banner()
 
-    # Define ANSI escape sequences for red, green, blue, and reset colors
+    # Define ANSI escape sequences for red, green, blue, yellow, and reset colors
     red_color = "\033[91m"
     green_color = "\033[92m"
     blue_color = "\033[94m"
+    yellow_color = "\033[93m"
+    white_color = "\033[97m"
     reset_color = "\033[0m"
 
     file_path = 'domains.txt'  # Path to the file containing the list of domains
@@ -67,10 +69,9 @@ def main():
 
         dmarc_record = check_dmarc(domain)
         if dmarc_record:
-            print("DMARC Record:")
-            print(f"  {dmarc_record}")
+            print(f"{white_color}DMARC Record: {dmarc_record}{reset_color}")
             if "p=none" in dmarc_record:
-                print(f"{red_color}DMARC exists, but there are no policies set{reset_color}")
+                print(f"{red_color}DMARC exists, but there are no defined policies{reset_color}")
             elif "p=quarantine" in dmarc_record:
                 print(f"{red_color}The current DMARC policy for this domain is QUARANTINE{reset_color}")
             elif "p=reject" in dmarc_record:
@@ -82,7 +83,10 @@ def main():
         if domain_owner:
             print(f"{blue_color}Domain Owner: {domain_owner}{reset_color}")
         else:
-            print(f"{blue_color}Domain Owner information not available{reset_color}")
+            print(f"{blue_color}Domain owner information not available{reset_color}")
+
+        whois_link = f"{yellow_color}For more information about this domain, visit: https://who.is/whois/{domain}{reset_color}"
+        print(whois_link)
 
         print("=" * 50)
 
