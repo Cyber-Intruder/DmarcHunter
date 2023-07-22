@@ -50,6 +50,14 @@ The current DMARC policy for this domain is REJECT
 Domain owner information not available
 For more information about this domain, visit: https://who.is/whois/google.com
 ==================================================
+Domain: example.com.br
+MX Records:
+  mx.example.com.br
+
+*** example.example.example.com did not find _dmarc.example.com.br: Non-existent domain
+No DMARC record found for this domain
+For more information about this domain, visit: https://who.is/whois/example.com.br
+==================================================
 
 You can save the output to a separate file, as in the following example:
 python3 DmarcHunter.py | grep "github.com" > results.txt
@@ -97,17 +105,29 @@ DMARC Record:
 The current DMARC policy for this domain is REJECT
 For more information about this domain, visit: https://who.is/whois/github.com
 ==================================================
-Domain: google.com
+Domain: example.com
 MX Records:
-  smtp.google.com
+  mxl.example.com
+  mx2.aspmx.l.example.com
+    Non-authoritative answer:
+DMARC Record:
+        ";p=none;rua=mailto:example@example.com.br"
+DMARC exists, but no policies defined
+For more information about this domain, visit: https://who.is/whois/example.com
+==================================================
+Domain: example.com
+MX Records:
+  mx.example1.com
+  mx.example1.com
+
 Non-authoritative answer:
 DMARC Record:
-        ";p=reject;rua=mailto:mailauth-reports@google.com"
-The current DMARC policy for this domain is REJECT
-For more information about this domain, visit: https://who.is/whois/google.com
+        ";p=quarantine;rua=mailto:dmarc-ab@service.alibaba.com;ruf=mailto:dmarc-ab@service.alibaba.com"
+The current DMARC policy for this domain is QUARANTINE
+For more information about this domain, visit: https://who.is/whois/example.com
 
-Note that in PowerShell, domain ownership info is not shown the reason is because PowerShell needs to use paid API in order to retrieve info about domain owners. That is why this function in PowerShell was removed from the DMARC HUNTER project.
 
+Note that in PowerShell, domain ownership info is not shown. The reason is because PowerShell needs to use paid API in order to retrieve info about domain owners. That is why this function in PowerShell was removed from the DMARC HUNTER project.
 
 *created by The Cyber-Intruder
 
