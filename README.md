@@ -1,10 +1,12 @@
-╔╦╗╔╦╗╔═╗╦═╗╔═╗  ╦ ╦╦ ╦╔╗╔╔╦╗╔═╗╦═╗
- ║║║║║╠═╣╠╦╝║    ╠═╣║ ║║║║ ║ ║╣ ╠╦╝
-═╩╝╩ ╩╩ ╩╩╚═╚═╝  ╩ ╩╚═╝╝╚╝ ╩ ╚═╝╩╚═
-                                                                                                                                      
-                                                                                                                                      
-                                                                                                                                      
+██████╗ ███╗   ███╗ █████╗ ██████╗  ██████╗    ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ 
+██╔══██╗████╗ ████║██╔══██╗██╔══██╗██╔════╝    ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗
+██║  ██║██╔████╔██║███████║██████╔╝██║         ███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝
+██║  ██║██║╚██╔╝██║██╔══██║██╔══██╗██║         ██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗
+██████╔╝██║ ╚═╝ ██║██║  ██║██║  ██║╚██████╗    ██║  ██║╚██████╔╝██║ ╚████║   ██║   ███████╗██║  ██║
+╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
                                                                                                    
+
+
 Python usage:
 
 If you don't have python-whois installed, you will need to install it, in order to DMARC HUNTER work properly.
@@ -84,7 +86,7 @@ PowerShell usage:
 
 7 - The results will be shown.
 
-8 - If you want to return the default execution policy, run the following command: "Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser"
+8 - If you want to return the default execution policy(recommended), run the following command: "Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser"
 
 Output example:
 
