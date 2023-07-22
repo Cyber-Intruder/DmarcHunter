@@ -72,11 +72,15 @@ PowerShell usage:
 
 3 - Open PowerShell as administrator;
 
-4 - Navigate to the Dmarc Hunter files directory;
+4 - Allow that scripts can be executed by changing the default execution policy(only for the current user) with the command: "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser" ;
 
-5 - Run the following command: ".\DmarcHunter.ps1" or ".\ptbr-DmarcHunter.ps1" based on the language that you want to work; 
+5 - Navigate to the Dmarc Hunter files directory;
 
-6 - The results will be shown.
+6 - Run the following command: ".\DmarcHunter.ps1" or ".\ptbr-DmarcHunter.ps1" based on the language that you want to work; 
+
+7 - The results will be shown.
+
+8 - If you want to return the default execution policy, run the following command: "Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser"
 
 Output example:
 
@@ -91,7 +95,7 @@ MX Records:
   alt3.aspmx.l.google.com
   alt2.aspmx.l.google.com
   alt1.aspmx.l.google.com
-Não é resposta autoritativa:
+Non-authoritative answer:
 DMARC Record:
         ";p=reject;pct=100;rua=mailto:dmarc@github.com"
 The current DMARC policy for this domain is REJECT
