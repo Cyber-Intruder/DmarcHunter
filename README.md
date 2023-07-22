@@ -41,7 +41,7 @@ MX Records:
   alt2.aspmx.l.google.com
 DMARC Record: "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc@github.com"
 The current DMARC policy for this domain is REJECT
-Domain owner information not available
+Domain owner GitHub Inc
 For more information about this domain, visit: https://who.is/whois/github.com
 ==================================================
 Domain: google.com
@@ -58,6 +58,7 @@ MX Records:
 
 *** example.example.example.com did not find _dmarc.example.com.br: Non-existent domain
 No DMARC record found for this domain
+Domain owner Example Corp
 For more information about this domain, visit: https://who.is/whois/example.com.br
 ==================================================
 
