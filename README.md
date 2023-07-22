@@ -132,4 +132,4 @@ For more information about this domain, visit: https://who.is/whois/example.com
 
 Note that in PowerShell, domain ownership info is not shown. The reason is because PowerShell needs to use paid API in order to retrieve info about domain owners. That is why this function in PowerShell was removed from the DMARC HUNTER project.
 
-*created by The Cyber-Intruder
+*created by The Cyber-Intruder.
