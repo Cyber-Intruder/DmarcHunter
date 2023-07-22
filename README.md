@@ -106,7 +106,7 @@ DMARC Record:
 The current DMARC policy for this domain is REJECT
 For more information about this domain, visit: https://who.is/whois/google.com
 
-Note that in PowerShell, domain ownership info is not shown.
+Note that in PowerShell, domain ownership info is not shown the reason is because PowerShell needs to use paid API in order to retrieve info about domain owners. That is why this function in PowerShell was removed from the DMARC HUNTER project.
 
 
 *created by The Cyber-Intruder
