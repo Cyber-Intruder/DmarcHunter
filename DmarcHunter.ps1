@@ -61,16 +61,16 @@ function Main {
             Write-Host "DMARC Record:"
             Write-Host ("  $dmarc_record")
             if ($dmarc_record -like "*p=none*") {
-                Write-Host "DMARC exists, but no policies defined" -ForegroundColor $red_color
+                Write-Host "DMARC exists, but no policies defined." -ForegroundColor $red_color
             } elseif ($dmarc_record -like "*p=quarantine*") {
-                Write-Host "The current DMARC policy for this domain is QUARANTINE" -ForegroundColor $red_color
+                Write-Host "The current DMARC policy for this domain is QUARANTINE." -ForegroundColor $red_color
             } elseif ($dmarc_record -like "*p=reject*") {
-                Write-Host "The current DMARC policy for this domain is REJECT" -ForegroundColor $red_color
+                Write-Host "The current DMARC policy for this domain is REJECT." -ForegroundColor $red_color
             } else {
-                Write-Host "DMARC record found, but not in expected format" -ForegroundColor $red_color
+                Write-Host "DMARC record found, but not in expected format." -ForegroundColor $red_color
             }
         } else {
-            Write-Host "No DMARC record found for this domain" -ForegroundColor $red_color
+            Write-Host "No DMARC record found for this domain." -ForegroundColor $red_color
         }
 
         $whois_link = "https://who.is/whois/$domain"
