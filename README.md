@@ -40,7 +40,7 @@ MX Records:
   alt1.aspmx.l.google.com
   alt2.aspmx.l.google.com
 DMARC Record: "v=DMARC1; p=reject; pct=100; rua=mailto:dmarc@github.com"
-The current DMARC policy for this domain is REJECT
+The current DMARC policy for this domain is REJECT.
 Domain owner GitHub Inc
 For more information about this domain, visit: https://who.is/whois/github.com
 ==================================================
@@ -48,8 +48,8 @@ Domain: google.com
 MX Records:
   smtp.google.com
 DMARC Record: "v=DMARC1; p=reject; rua=mailto:mailauth-reports@google.com"
-The current DMARC policy for this domain is REJECT
-Domain owner information not available
+The current DMARC policy for this domain is REJECT.
+Domain owner information not available.
 For more information about this domain, visit: https://who.is/whois/google.com
 ==================================================
 Domain: example.com.br
@@ -57,7 +57,7 @@ MX Records:
   mx.example.com.br
 
 *** example.example.example.com did not find _dmarc.example.com.br: Non-existent domain
-No DMARC record found for this domain
+No DMARC record found for this domain.
 Domain owner Example Corp
 For more information about this domain, visit: https://who.is/whois/example.com.br
 ==================================================
@@ -105,7 +105,7 @@ MX Records:
 Non-authoritative answer:
 DMARC Record:
         ";p=reject;pct=100;rua=mailto:dmarc@github.com"
-The current DMARC policy for this domain is REJECT
+The current DMARC policy for this domain is REJECT.
 For more information about this domain, visit: https://who.is/whois/github.com
 ==================================================
 Domain: example.com
@@ -115,7 +115,7 @@ MX Records:
     Non-authoritative answer:
 DMARC Record:
         ";p=none;rua=mailto:example@example.com.br"
-DMARC exists, but no policies defined
+DMARC exists, but no policies defined.
 For more information about this domain, visit: https://who.is/whois/example.com
 ==================================================
 Domain: example.com
@@ -126,7 +126,7 @@ MX Records:
 Non-authoritative answer:
 DMARC Record:
         ";p=quarantine;rua=mailto:dmarc-ab@service.alibaba.com;ruf=mailto:dmarc-ab@service.alibaba.com"
-The current DMARC policy for this domain is QUARANTINE
+The current DMARC policy for this domain is QUARANTINE.
 For more information about this domain, visit: https://who.is/whois/example.com
 
 
