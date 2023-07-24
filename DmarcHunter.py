@@ -71,19 +71,19 @@ def main():
         if dmarc_record:
             print(f"{white_color}DMARC Record: {dmarc_record}{reset_color}")
             if "p=none" in dmarc_record:
-                print(f"{red_color}DMARC exists, but there are no defined policies{reset_color}")
+                print(f"{red_color}DMARC exists, but there are no defined policies.{reset_color}")
             elif "p=quarantine" in dmarc_record:
-                print(f"{red_color}The current DMARC policy for this domain is QUARANTINE{reset_color}")
+                print(f"{red_color}The current DMARC policy for this domain is QUARANTINE.{reset_color}")
             elif "p=reject" in dmarc_record:
-                print(f"{red_color}The current DMARC policy for this domain is REJECT{reset_color}")
+                print(f"{red_color}The current DMARC policy for this domain is REJECT.{reset_color}")
         else:
-            print(f"{red_color}No DMARC record found for this domain{reset_color}")
+            print(f"{red_color}No DMARC record found for this domain.{reset_color}")
 
         domain_owner = get_domain_owner(domain)
         if domain_owner:
             print(f"{blue_color}Domain Owner: {domain_owner}{reset_color}")
         else:
-            print(f"{blue_color}Domain owner information not available{reset_color}")
+            print(f"{blue_color}Domain owner information not available.{reset_color}")
 
         whois_link = f"{yellow_color}For more information about this domain, visit: https://who.is/whois/{domain}{reset_color}"
         print(whois_link)
